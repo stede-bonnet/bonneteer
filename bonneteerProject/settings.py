@@ -29,9 +29,9 @@ MEDIA_URL = '/media/'
 SECRET_KEY = '+g7v2h7li7qm$m3&ay(9$vxi^j&u7h2t01q_4jne&@dr))bjq1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Application definition
