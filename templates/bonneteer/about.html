@@ -1,0 +1,12 @@
+{% extends 'bonneteer/base.html' %}
+
+{% block body_block %}
+
+<h1>How Bonneteer Works</h1>
+
+<h2>Getting trusted sites</h2>
+<p>Bonneteer updates its database of trusted sites weekly by getting the megathread from the r/PiratedGames sub, parsing its content and spitting out a list of trusted releases and websites</p>
+
+<h2>Getting trusted repackers</h2>
+<p>With the list of trusted releases and safe sites, bonneteer requests all sites by threading, and returning the page where the release was found</p>
+{% endblock %}

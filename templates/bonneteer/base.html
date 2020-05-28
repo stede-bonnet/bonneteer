@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500&display=swap" rel="stylesheet"> 
+    <script src="{% static 'js/load.js' %}"></script>
+</header>
+
+
+<html>
+    <head class="container">
+        <div id="head">
+            <h1 id="title">Bonneteer</h1>
+                <nav class="topnav" id="navbar">
+                    <ul>
+                        <li><a href="{% url 'bonneteer:index' %}">Home</a>   </li>
+                        <li><a href="{% url 'bonneteer:about' %}">How it works</a></li>
+                    </ul>
+                </nav>
+        </div>
+    </head><br>
+    <body>
+        {% block body_block %}
+        {% endblock %}
+        <style>
+            #searchFrom{
+                background-image: url("{% static 'images/back.jpeg' %}");
+            }
+        </style>
+    </body>
+</html>
