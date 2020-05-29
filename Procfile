@@ -1,1 +1,1 @@
-web: gunicorn bonneteer_project.wsgi --log-file -
+web: gunicorn bonneteer.bonneteer_project.wsgi --log-file -
