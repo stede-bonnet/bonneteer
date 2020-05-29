@@ -1,4 +1,4 @@
-2020-05-28
+2020-05-29
 Here's the revised r/PiratedGames Mega Thread! This is completely rewritten, and contains lots of interesting sites / tools. There are no referral links in this thread.
 
 **Thank you to u/lowkitz and u/YT_CoolioMan for the awards!**
@@ -15,6 +15,7 @@ Other noteworthy mentions:
 - [RuTor](http://www.rutor.info/) - Russian Torrent Tracker.
 - [RuTracker](https://rutracker.org) - Russian Torrent Forum.
 - [Rustorka](http://rustorka.com/) - Russian Torrent Tracker.
+- [SceneGames](http://scenegames.to) - Scene release torrents.
 - [Solid Torrents](https://solidtorrents.net/) - Has a spam filter.
 - [Tapochek](https://tapochek.net/index.php) - Russian Torrent Tracker.
 - [Torrents.csv](https://torrents-csv.ml/) - Easy viewing torrent search engine.
@@ -34,6 +35,7 @@ Other noteworthy mentions:
 - [MyAbandonware](https://www.myabandonware.com/) - Old/retro games.
 - [Ovagames](http://www.ovagames.com/) - DDL Games.
 - [RLSBB](https://rlsbb.ru) - DDL Scene Releases.
+- [SceneGames](http://scenegames.to) - DDL Scene releases.
 - [SCNLOG.ME](https://scnlog.me/) - DDL Scene Releases.
 - [Torrminatorr Forum](https://forum.torrminatorr.com/) - DDL games.
 
