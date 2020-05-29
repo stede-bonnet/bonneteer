@@ -267,7 +267,9 @@ class siteVisitor(threading.Thread):
 
 
 
-
+def fetch_data():
+    with(open(MEGATHREAD_JSON)) as f:
+        return json.load(f)
 
 #main function to return searches
 
@@ -290,8 +292,7 @@ def search(target):
 
 
     #get extracted data
-    f = open(MEGATHREAD_JSON)
-    data = json.load(f)
+    data = fetch_data()
 
 
     #extract data to variables

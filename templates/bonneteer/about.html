@@ -1,12 +1,18 @@
 {% extends 'bonneteer/base.html' %}
 
 {% block body_block %}
+<h1>Current trusted sites</h1>
 
 <h1>How Bonneteer Works</h1>
 
-<h2>Getting trusted sites</h2>
-<p>Bonneteer updates its database of trusted sites weekly by getting the megathread from the r/PiratedGames sub, parsing its content and spitting out a list of trusted releases and websites</p>
+<h2 class="aboutHeader">Getting trusted sites</h2>
+<p class="aboutText">Bonneteer updates its database of trusted sites weekly by getting the megathread from the r/PiratedGames sub, parsing its content and spitting out a list of trusted releases and websites</p>
 
-<h2>Getting trusted repackers</h2>
-<p>With the list of trusted releases and safe sites, bonneteer requests all sites by threading, and returning the page where the release was found</p>
+<h2 class="aboutHeader">Getting trusted repackers</h2>
+<p class="aboutText">With the list of trusted releases and safe sites, bonneteer requests all sites by threading, and returning the page where the release was found, future versions will include direct links</p>
+
+<h2 class="aboutHeader">The name</h2>
+<p class="aboutText">Stede bonnet  was an early eighteenth-century Barbadian pirate, sometimes called "The Gentleman Pirate" because he was a moderately wealthy land-owner before turning to a life of crime.
+    Most people pirating games can probably buy them, but why do that when you can pirate them, the Bonnet way!
+</p>
 {% endblock %}
