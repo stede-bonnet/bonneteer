@@ -48,13 +48,31 @@ body{
 }
 #navbar ul li a{
   text-decoration: none;
+  color: #333;
 }
 
 
-
-
-
-
+.aboutHeader{
+  color: rgb(87, 85, 82);
+}
+.aboutText{
+  color: rgb(226, 224, 219);
+  padding:20px; 
+}
+.aboutLinks ul{
+  list-style: none;
+  text-decoration: none;
+}
+.aboutLinks li a{
+  text-decoration: none;
+  color: white;
+}
+.aboutLinks li a:hover{
+  text-transform: uppercase;
+}
+.bigHeader{
+  color:rgb(212, 212, 8);
+}
 
 
 
@@ -74,7 +92,9 @@ body{
   width: 100%;
 }
 
-
+#searchTitle{
+  font-size: 50px;
+}
 #searchBlock h2{
   color: wheat;
 }
@@ -93,7 +113,7 @@ body{
   background-color: rgb(255, 255, 255);
   height: 40px;
   border-radius: 20px;
-  text-transform: uppercase;
+  border: none;
   display: inline;
 }
 
@@ -126,14 +146,14 @@ body{
 #loader {
   display: none;
   margin-top: 20%;
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #3498db; /* Blue */
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid rgb(212, 212, 8); /* Blue */
   border-radius: 50%;
   width: 40px;
   height: 40px;
   text-align: center;
   margin-left: 48%;
-  animation: spin 2s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin {
@@ -188,6 +208,9 @@ body{
     height: 20px;
     width: 20px;
     margin-left: 47%;
+  }
+  #searchTitle{
+    font-size: 30px;
   }
 
   

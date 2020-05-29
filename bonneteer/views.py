@@ -29,5 +29,12 @@ def index(request):
 
 
 def about(request):
-    context = {}    
+    data = fetch_data()
+    
+    torrentSites = data['Torrent Sites']
+    directDownloads = data['Direct Download Sites']
+    trustedRepacks = data['Repacks']
+
+
+    context = {'Torrents':torrentSites,'DirectDownload':directDownloads,'Repackers':trustedRepacks}    
     return render(request,'bonneteer/about.html',context=context)

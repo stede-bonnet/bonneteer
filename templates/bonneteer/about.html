@@ -1,9 +1,30 @@
 {% extends 'bonneteer/base.html' %}
-
+{% load static %}
 {% block body_block %}
-<h1>Current trusted sites</h1>
+<h1 class="bigHeader">Current trusted sites</h1>
+<h2 class="aboutHeader">Torrent sites</h2>
+<ul class="aboutLinks">
+{% for name,link in Torrents.items %}
+<li><a href="{{ link }}">{{ name }}</a></li>
+{% endfor %}
+</ul>
 
-<h1>How Bonneteer Works</h1>
+<h2 class="aboutHeader">Torrent sites</h2>
+<ul class="aboutLinks">
+{% for name,link in DirectDownload.items %}
+<li><a href="{{link}}">{{name}}</a></li>{{d}}
+{% endfor %}
+</ul>
+
+<h2 class="aboutHeader">Torrent sites</h2>
+<ul class="aboutLinks">
+{% for name,link in Repackers.items %}
+<li><a href="{{ link }}">{{name}}</a></li>
+{% endfor %}
+</ul>
+
+
+<h1 class="bigHeader">How Bonneteer Works</h1>
 
 <h2 class="aboutHeader">Getting trusted sites</h2>
 <p class="aboutText">Bonneteer updates its database of trusted sites weekly by getting the megathread from the r/PiratedGames sub, parsing its content and spitting out a list of trusted releases and websites</p>

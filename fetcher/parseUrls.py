@@ -244,10 +244,10 @@ class siteVisitor(threading.Thread):
                 reqs = []
                 if type(self.searchUrl) == list:
                     for searchPage in self.searchUrl:
-                        r = requests.get(searchPage.format(self.target),headers={'User-agent':'searchbot'},timeout=4)
+                        r = requests.get(searchPage.format(self.target),headers={'User-agent':'searchbot'},timeout=5)
                         reqs.append(r)
                 else:
-                    r = requests.get(self.searchUrl.format(self.target),headers={'User-agent':'searchbot'},timeout=4)
+                    r = requests.get(self.searchUrl.format(self.target),headers={'User-agent':'searchbot'},timeout=5)
                     reqs.append(r)
 
             except requests.exceptions.ConnectTimeout:
@@ -263,7 +263,6 @@ class siteVisitor(threading.Thread):
                     self.reqs = reqs
 
             
-
 
 
 
