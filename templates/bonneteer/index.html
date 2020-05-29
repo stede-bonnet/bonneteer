@@ -20,36 +20,40 @@
                     {{ field }}
                 {% endfor %}
                 <button id="searchButton" >Search</button>
+                
             </form>
         </section>
 
 
         </div>
         
-        <div class="container" id="loader"></div> 
-            {% if results %}
+        <div id="loader"></div> 
 
-                <ul id="results">
-                {% for key,result in results.items %}
 
-                
-                    <li id="releaseBlock">
 
-                            <h3>{{ key }}</h3>
-                            <div>
-                                {% for site in result %}
-                                    <a href="{{ site.1 }}">{{ site.0 }}</a><br>
-                                {% endfor %}
-                            </div>
+        {% if results %}
 
-                    </li>
+            <ul id="results">
+            {% for key,result in results.items %}
 
-    
-    
-                {% endfor %}
-            </ul>
-                
-            {% endif %}
+            
+                <li id="releaseBlock">
+
+                        <h3>{{ key }}</h3>
+                        <div>
+                            {% for site in result %}
+                                <a href="{{ site.1 }}">{{ site.0 }}</a><br>
+                            {% endfor %}
+                        </div>
+
+                </li>
+
+
+
+            {% endfor %}
+        </ul>
+            
+        {% endif %}
 
 
 

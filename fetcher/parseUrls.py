@@ -181,9 +181,9 @@ def get_query_formats():
                 elif "/1/" in line[1]:
 
                     splitLine = line[1].split("/1/")
-                    print(splitLine)
+
                     for i in range(1,7):
-                        print(splitLine[0] + "/{}/".format(str(i)),splitLine[1])
+
                         allPages.append(splitLine[0] + "/{}/".format(str(i))+splitLine[1])
                 searchQueries[line[0]] = allPages
             
@@ -341,7 +341,6 @@ def search(target):
                 #if repacker in request
                 result = is_available(repacker,thread.reqs)
                 if result[0]:
-                    print(result)
                     #if not already gotten, add site
                     if repacker not in repackersAvailable:
                         repackersAvailable[repacker] = [[thread.site,result[1]]]
