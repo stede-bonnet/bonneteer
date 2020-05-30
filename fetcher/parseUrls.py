@@ -169,7 +169,8 @@ def get_query_formats():
                 #list of all pages
                 allPages = []
 
-                #check if ends with /1/ or /1
+                #check if ends with /1/,/1 or /1/ 
+                #if it does make a list of alternate pages
 
                 if line[1][-1::] == "/":
                     for i in range(1,7):
@@ -191,7 +192,7 @@ def get_query_formats():
             else:
                 searchQueries[line[0]] = line[1]
 
-    
+    #return list of queries
     return searchQueries
 
 
@@ -213,6 +214,7 @@ def is_available(trusted,reqs):
             if trusted.lower() in sliceofhtml:
                 return [True,requestMade.url]
 
+    #return false
     return [False]
 
 
@@ -223,6 +225,7 @@ def is_available(trusted,reqs):
 # CLASS VISITOR CLASS 
 class siteVisitor(threading.Thread):
 
+    #initiate variables
     siteUp = False
     request = None
 
@@ -236,10 +239,18 @@ class siteVisitor(threading.Thread):
     def run(self):
         self.test_url()
 
+
+
+    #function to run searches
     def test_url(self):
+
+        #if object is set up
         if self.searchUrl != "":
+            
+            #initiate request
             r = False
 
+            #tru requests on each of the urls setup
             try:
                 reqs = []
                 if type(self.searchUrl) == list:
@@ -250,14 +261,18 @@ class siteVisitor(threading.Thread):
                     r = requests.get(self.searchUrl.format(self.target),headers={'User-agent':'searchbot'},timeout=5)
                     reqs.append(r)
 
+
+
+            #unhandled exeptions
             except requests.exceptions.ConnectTimeout:
                 return
             except requests.exceptions.ConnectionError:
                 return
             except requests.exceptions.ReadTimeout:
                 return
-            finally:
+            finally:    
 
+                #if request is valid store and return 
                 if r:
                     self.siteUp = True
                     self.reqs = reqs
@@ -265,13 +280,14 @@ class siteVisitor(threading.Thread):
             
 
 
-
+#fetch json data in stored
 def fetch_data():
     with(open(MEGATHREAD_JSON)) as f:
         return json.load(f)
 
-#main function to return searches
 
+
+#main function to return searches
 def search(target):
 
     repackersAvailable = {}
