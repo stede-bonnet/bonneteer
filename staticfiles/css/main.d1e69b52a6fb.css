@@ -44,7 +44,7 @@ body{
   text-decoration: none;
 }
 .topnav a:hover{
-  font-weight: bold;
+  font-size: 10px;
 }
 #navbar ul li{
   display: inline;
