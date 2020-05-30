@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import boto.s3.connection import S3Connection
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates') ##.join will join the base file location and whatever you add in proper format
@@ -29,7 +29,7 @@ MEDIA_URL = '/media/'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-
+SECRET_KEY = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
