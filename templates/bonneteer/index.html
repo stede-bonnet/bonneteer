@@ -14,10 +14,10 @@
 
 
         <section id="searchForm">
-            <form onsubmit="document.getElementById('loader').style.display = 'block';document.getElementById('searchButton').style.display = 'none'" method="POST" >
+            <form onsubmit="document.getElementById('loadingZone').style.display = 'block';document.getElementById('searchButton').style.display = 'none'" method="POST" >
                 {% csrf_token %}
                 {% for field in form %}
-                    {{ field }}
+                    {{ field }}<br>
                 {% endfor %}
                 <button id="searchButton" >Search</button>
                 
@@ -27,7 +27,10 @@
 
         </div>
         
-        <div id="loader"></div> 
+        <div id="loadingZone">
+            <div id="loader"></div>
+            <p>Searching...</p>
+        </div> 
 
 
 
