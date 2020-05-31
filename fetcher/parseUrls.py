@@ -333,7 +333,7 @@ def search(target):
     #list of threads for each site
     sites = []
 
-    print(trustedRepacks)
+
     #initiate torrent sites
     for site,url in torrentSites.items():
         siteObj = siteVisitor(target,site,url,queriesFormats[url])
