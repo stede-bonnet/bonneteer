@@ -100,7 +100,7 @@ def parseThread():
                 #if not empty
                 if site != "":
                     data[sectionTitle][site] = url
-    
+
     #write dictionary out to megathread json
     with open(MEGATHREAD_JSON,"w") as outfile:
         json.dump(data,outfile)
@@ -118,11 +118,9 @@ def grab(line):
 
     #remove all newlines 
     sline = line.strip()
-    
-    #check if there is a link in the line
-    if "http" or "https" in sline:
-        
 
+    #check if there is a link in the line
+    if ("http" or "https") in sline and len(sline) != 0:
         sline =sline.split("(")
         
         #if line has url and title
@@ -136,9 +134,23 @@ def grab(line):
 
             except IndexError:
                 return "",""
-    
+    else: 
+        if "-" in sline:
+            sline = clean_line(sline)
+            return sline.split("-")[1],""
     #if there's no site return empty
     return "",""
+
+
+
+def clean_line(line):
+    illegal = [" "]
+    new = []
+    for letter in line:
+        if letter not in illegal:
+            new.append(letter)
+    return "".join(new)
+
 
 
 
@@ -321,7 +333,7 @@ def search(target):
     #list of threads for each site
     sites = []
 
-
+    print(trustedRepacks)
     #initiate torrent sites
     for site,url in torrentSites.items():
         siteObj = siteVisitor(target,site,url,queriesFormats[url])
@@ -366,4 +378,3 @@ def search(target):
                         repackersAvailable[repacker].append([thread.site,result[1]])
 
     return repackersAvailable
-
