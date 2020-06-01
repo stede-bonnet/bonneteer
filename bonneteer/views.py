@@ -16,11 +16,15 @@ def index(request):
             srch = search(form.cleaned_data['search'])
             
             context['results'] = srch
-    
+            if len(srch) == 0:
+                context['message'] = 'sorry no torrents found'
 
+    else:
+        context['message'] = ''
     
     form = SearchForm()
     context['form'] = form
+
 
     return render(request,'bonneteer/index.html',context=context)
 
