@@ -17,7 +17,7 @@ def index(request):
             
             context['results'] = srch
             if len(srch) == 0:
-                context['message'] = 'sorry no torrents found'
+                context['message'] = 'sorry no results for: {}'.format(form.cleaned_data['search'])
 
     else:
         context['message'] = ''
