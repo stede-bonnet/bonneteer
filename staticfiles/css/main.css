@@ -156,6 +156,9 @@ body{
 #searchForm button{
   margin-top:10px;
 }
+#statusMessage{
+  color: wheat;
+}
 
 #loader {
   margin-top: 20%;
