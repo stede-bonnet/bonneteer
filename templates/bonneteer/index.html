@@ -1,7 +1,9 @@
 {% extends 'bonneteer/base.html' %}
 {% load static %}
 
-
+{% block title_block %}
+Search
+{% endblock %}
 {% block body_block %}
 <head>
     <title>Bonneteer</title>
@@ -9,7 +11,7 @@
 
 <body>
     <div class="container" id="searchBlock">
-        <div class="backgroundImg">
+
         <h2 id="searchTitle">Bonnet Search</h2>
 
 
@@ -28,7 +30,7 @@
         </section>
 
 
-        </div>
+
         
         <div id="loadingZone">
             <div id="loader"></div>

@@ -29,7 +29,12 @@ def index(request):
     return render(request,'bonneteer/index.html',context=context)
 
 
-
+def releases(request):
+    data = fetch_releases()
+    context = {}
+    context['tripleA']= data[:30:]
+    context['indie'] = data[30:len(data):]
+    return render(request,'bonneteer/releases.html',context=context)
 
 
 def about(request):

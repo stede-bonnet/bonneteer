@@ -1,0 +1,25 @@
+{% extends 'bonneteer/base.html' %}
+{% load static %}
+
+{% block title_block %}
+Releases
+{% endblock %}
+
+
+{% block body_block %}
+<head>
+    <title>Releases</title>
+</head>
+
+<body>
+    <h1 class="bigHeader" style="text-align: center;">Triple AAA releases</h2>
+    {% for title in tripleA %}
+        <h4 style="color: whitesmoke;text-align: center;">{{title}}</h4>
+    {% endfor %}
+
+    <h1 class="bigHeader" style="text-align: center;margin-top: 5%;">Indie releases</h2>
+    {% for title in indie %}
+        <h4 style="color: whitesmoke;text-align: center;">{{title}}</h4>
+    {% endfor %}
+</body>
+{% endblock %}

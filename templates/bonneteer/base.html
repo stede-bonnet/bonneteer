@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500&display=swap" rel="stylesheet"> 
     <script src="{% static 'js/load.js' %}"></script>
+    <title>Bonneteer -
+        {% block title_block %}
+        {% endblock %}
+    </title>
+
 </header>
 
 
@@ -17,6 +22,7 @@
                 <nav class="topnav" id="navbar">
                     <ul>
                         <li><a href="{% url 'bonneteer:index' %}">Home</a>   </li>
+                        <li><a href="{% url 'bonneteer:releases' %}">Releases</a></li>
                         <li><a href="{% url 'bonneteer:about' %}">How it works</a></li>
                     </ul>
                 </nav>

@@ -10,10 +10,7 @@ body{
   overflow: hidden;
   text-align: center;
 }
-.backgroundImg {
-  background-image: url("/media/kungfulambda/SHARED/projects/bonneteerProject/static/images/back.jpeg");
-  background-repeat: round;
-}
+
 /*header navbar*/
 #head  {
   background-color: rgb(212, 212, 8);
@@ -199,6 +196,10 @@ body{
     width: 90%;
     min-height:auto;
   }
+  #head{
+    height: fit-content;
+  }
+
 
 }
 
@@ -212,8 +213,13 @@ body{
     width: 100%;
     padding-top: 0;
   }
-  #head{height: 200px;text-align: center;}
-  #title{padding-left: 0;}
+  #head{
+    height: fit-content;
+    text-align: center;
+  }
+  #title{
+    padding-left: 0;
+  }
 
 
 

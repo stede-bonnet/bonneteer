@@ -7,5 +7,6 @@ from bonneteer import views
 app_name = 'bonneteer'
 urlpatterns = [
     path('',views.index,name='index'),
-    path("about",views.about,name="about")
+    path("about",views.about,name="about"),
+    path("releases",views.releases,name="releases")
 ]

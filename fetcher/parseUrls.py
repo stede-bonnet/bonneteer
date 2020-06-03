@@ -14,7 +14,7 @@ SAVED_DIR= os.path.join(str(pathlib.Path().absolute()),"fetcher","saved")
 MEGATHREAD_JSON = os.path.join(SAVED_DIR,"megaThread.json")
 MEGATHREAD_TXT = os.path.join(SAVED_DIR,"megathread.txt")
 QUERYFORMATS = os.path.join(SAVED_DIR,"queryFormat.txt")
-
+RELEASE_TXT = os.path.join(SAVED_DIR,"releases.txt")
 
 #CHECK IF THERE IS AN INTERNET CONNECTION AVAILABLE
 def checkInternet(times):
@@ -297,7 +297,31 @@ def fetch_data():
     with(open(MEGATHREAD_JSON)) as f:
         return json.load(f)
 
+def get_releases():
+    req1 = requests.get("https://api.crackwatch.com/api/games",params={"is_aaa":"true","is_cracked":"true"}).text
+    req2 = requests.get("https://api.crackwatch.com/api/games",params={"is_aaa":"false","is_cracked":"true"}).text
+    d = json.loads(req1)
+    d2 = json.loads(req2)
 
+
+    
+    with open(RELEASE_TXT,"w+") as f:
+        for aTitle in d:
+            f.write(aTitle['title']+"\n")
+        for indie in d:
+            f.write(indie['title']+"\n")
+    
+
+def fetch_releases():
+    gs = []
+    with open(RELEASE_TXT,"r") as f:
+        for line in f:
+            gs.append(line.strip())
+
+
+
+
+    return gs
 
 #main function to return searches
 def search(target):
@@ -378,3 +402,4 @@ def search(target):
                         repackersAvailable[repacker].append([thread.site,result[1]])
 
     return repackersAvailable
+
