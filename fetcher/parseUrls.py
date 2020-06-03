@@ -335,6 +335,7 @@ def search(target):
     #if a week has passes since last update
     if day % 7 == 0:
         getMegaThread()
+        get_releases()
 
 
     #extract data from thread

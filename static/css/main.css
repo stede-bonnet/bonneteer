@@ -196,9 +196,7 @@ body{
     width: 90%;
     min-height:auto;
   }
-  #head{
-    height: fit-content;
-  }
+
 
 
 }
@@ -214,7 +212,7 @@ body{
     padding-top: 0;
   }
   #head{
-    height: fit-content;
+    height: 250px;
     text-align: center;
   }
   #title{

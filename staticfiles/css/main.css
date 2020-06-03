@@ -198,6 +198,7 @@ body{
   }
 
 
+
 }
 
 
@@ -211,7 +212,7 @@ body{
     padding-top: 0;
   }
   #head{
-    height: 800px;
+    height: 250px;
     text-align: center;
   }
   #title{
