@@ -308,9 +308,11 @@ def get_releases():
     with open(RELEASE_TXT,"w+") as f:
         for aTitle in d:
             f.write(aTitle['title']+"\n")
-        for indie in d:
-            f.write(indie['title']+"\n")
-    
+        for indie in d2:
+            try:
+                f.write(indie['title']+"\n")
+            except UnicodeEncodeError:
+                continue
 
 def fetch_releases():
     gs = []
