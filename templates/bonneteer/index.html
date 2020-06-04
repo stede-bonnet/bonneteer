@@ -12,20 +12,29 @@ Search
 <body>
     <div class="container" id="searchBlock">
 
-        <h2 id="searchTitle">Bonnet Search</h2>
+        <h2 id="searchTitle">{{ head }}</h2>
 
 
         <section id="searchForm">
             <form onsubmit="
             document.getElementById('loadingZone').style.display = 'block';
-            document.getElementById('searchButton').style.display = 'none';" 
+            document.getElementById('searchButton').style.display = 'none';
+            document.getElementById('randomButton').style.display = 'none';" 
             method="POST" >
                 {% csrf_token %}
                 {% for field in form %}
                     {{ field }}<br>
                 {% endfor %}
-                <button id="searchButton" >Search</button>
+                <button type="submit" id="searchButton" name="std_search">Search</button>
                 
+            </form>
+            <form onsubmit="
+            document.getElementById('loadingZone').style.display = 'block';
+            document.getElementById('randomButton').style.display = 'none';
+            document.getElementById('searchButton').style.display = 'none';"
+            method="POST">
+                {% csrf_token %}
+                <button type="submit" id="randomButton" name="rnd_search">Random Search</button>
             </form>
         </section>
 

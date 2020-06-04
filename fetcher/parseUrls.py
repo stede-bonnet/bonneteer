@@ -143,6 +143,7 @@ def grab(line):
 
 
 
+#cleans spaces in lines
 def clean_line(line):
     illegal = [" "]
     new = []
@@ -216,6 +217,7 @@ def get_query_formats():
 # CHECK IF TRUSTED REPACKERS ARE IN THE REQUESTS
 def is_available(trusted,reqs):
     
+    tempCandidate = ""
     #for each request made
     for requestMade in reqs:
 
@@ -224,9 +226,16 @@ def is_available(trusted,reqs):
             
             #if trusted repacker, in slice, return true
             if trusted.lower() in sliceofhtml:
-                return [True,requestMade.url]
-
+                if "href" in sliceofhtml:
+                    return [True,requestMade.url,sliceofhtml]
+                
+                else:
+                    tempCandidate = requestMade.url
+                
     #return false
+    if tempCandidate != "":
+        return [True,tempCandidate]
+
     return [False]
 
 
@@ -396,13 +405,33 @@ def search(target):
                 #if repacker in request
                 result = is_available(repacker,thread.reqs)
                 if result[0]:
-                    #if not already gotten, add site
+                    finalUrl = ""
+
+                    
+                    
+                    ##if there is a direct link
+                    if len(result) == 3:
+                        
+                        #if it's an extension to hte base, add to base
+                        if "http" not in result[2] and "https" not in result[2]:
+                            finalUrl = thread.url + result[2].split("\"")[1][1:]
+                            
+                        #if its the full url
+                        else:
+                            try:
+                                finalUrl = result[2].split("=")[1]
+                            except IndexError:
+                                return
+                    else: 
+                        finalUrl = result[1]    
+                    
+                    #if repacker not already in the dictionary
                     if repacker not in repackersAvailable:
-                        repackersAvailable[repacker] = [[thread.site,result[1]]]
+                        repackersAvailable[repacker] = [[thread.site,finalUrl]]
                     
                     #if already gotten add to dictionary
                     else:
-                        repackersAvailable[repacker].append([thread.site,result[1]])
+                        repackersAvailable[repacker].append([thread.site,finalUrl])
 
     return repackersAvailable
 

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from fetcher.parseUrls import *
-
+from random import randint
 
 from bonneteer.forms import SearchForm
 
@@ -10,17 +10,30 @@ from bonneteer.forms import SearchForm
 def index(request):
     context = {}
     if request.method == 'POST':
+        
 
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            srch = search(form.cleaned_data['search'])
-            
+        if "rnd_search" in request.POST:
+            data = fetch_releases()
+            randomTitle = data[randint(0,len(data))]
+            srch = search(randomTitle)
             context['results'] = srch
+            context['head'] = randomTitle
             if len(srch) == 0:
-                context['message'] = 'sorry no results for: {}'.format(form.cleaned_data['search'])
+                context['message'] = 'sorry no results for: {}'.format(randomTitle)
+        
+
+        else:
+            form = SearchForm(request.POST)
+            if form.is_valid():
+                srch = search(form.cleaned_data['search'])
+                context['results'] = srch
+                context['head'] = form.cleaned_data['search']
+                if len(srch) == 0:
+                    context['message'] = 'sorry no results for: {}'.format(form.cleaned_data['search'])
 
     else:
         context['message'] = ''
+        context['head'] = "Bonnet Search"
     
     form = SearchForm()
     context['form'] = form
