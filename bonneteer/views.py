@@ -21,10 +21,14 @@ def index(request):
             dbSearches.save()
 
             data = fetch_releases()
+            data = data[:30:]
             randomTitle = data[randint(0,len(data))]
             srch = search(randomTitle)
+
             context['results'] = srch
             context['head'] = randomTitle
+
+
             if len(srch) == 0:
                 context['message'] = 'sorry no results for: {}'.format(randomTitle)
         
