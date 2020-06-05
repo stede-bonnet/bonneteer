@@ -5,14 +5,21 @@ from fetcher.parseUrls import *
 from random import randint
 
 from bonneteer.forms import SearchForm
+from bonneteer.models import Searches
 
 
 def index(request):
     context = {}
     if request.method == 'POST':
-        
+
 
         if "rnd_search" in request.POST:
+            
+            # log random search count
+            dbSearches = Searches.objects.get(name="randomSearch")
+            dbSearches.searches += 1
+            dbSearches.save()
+
             data = fetch_releases()
             randomTitle = data[randint(0,len(data))]
             srch = search(randomTitle)
@@ -24,6 +31,9 @@ def index(request):
 
         else:
             form = SearchForm(request.POST)
+            dbSearches = Searches.objects.get(name="standardSearch")
+            dbSearches.searches += 1
+            dbSearches.save()
             if form.is_valid():
                 srch = search(form.cleaned_data['search'])
                 context['results'] = srch
