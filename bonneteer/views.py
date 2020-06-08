@@ -51,7 +51,7 @@ def index(request):
 
     else:
         context['message'] = ''
-        context['head'] = "Bonnet Search"
+        context['head'] = "Bonnet search"
     
     form = SearchForm()
     context['form'] = form

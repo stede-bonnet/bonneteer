@@ -2,7 +2,8 @@ body{
   padding: 0;
   border: 0;
   background-color: #333;
-  font-family: 'Zilla Slab', serif;
+  font-family: 'Jaldi', sans-serif;
+  /*font-family: 'Zilla Slab', serif;*/
 }
 .container{
   width: 90%;
@@ -14,17 +15,19 @@ body{
 /*header navbar*/
 #head  {
   background-color: rgb(212, 212, 8);
-  min-height: 80px;
-  padding-top: 20px;
+  min-height: 110px;
+  padding-top: 10px;
 }
 #title{
+  font-family: 'Dancing Script', cursive;
   display: inline;
   padding-left: 50px;
-  font-size: 50px;
+  font-size: 500%;
+
 }
 
 .topnav {
-  margin-top: 10px;
+  margin-top: 25px;
   float: right;
   overflow: hidden;
   text-transform: uppercase;
@@ -47,6 +50,7 @@ body{
   display: inline;
 }
 #navbar ul li a{
+  font-size: 115%;
   text-decoration: none;
   color: #333;
 }
@@ -93,10 +97,12 @@ body{
 }
 
 #searchTitle{
+  font-family: 'Zilla Slab', serif;
   font-size: 50px;
 }
 #searchBlock h2{
-  color: wheat;
+  color: rgb(236, 226, 226);
+  font-family: 'Zilla Slab', serif;
 }
 
 
@@ -105,15 +111,18 @@ body{
   border: 20px;
   height: 40px;
   color: black;
+  background-color: rgb(236, 226, 226);
+  padding-left: 2%;
   border-radius: 20px;
-  text-align: center;
 }
 
 #searchForm button{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(236, 226, 226);
   height: 40px;
   border-radius: 20px;
   border: none;
+  color:#333;
+  text-transform: uppercase;
   display: inline;
 }
 
@@ -208,6 +217,7 @@ body{
     float: none;
   }
   .topnav{
+    margin-top: 0;
     float: left;
     width: 100%;
     padding-top: 0;
@@ -215,16 +225,23 @@ body{
   #head{
     height: 250px;
     text-align: center;
+    margin-bottom: 0;
   }
   #title{
+    margin-bottom: 0;
+    font-size: 380%;
     padding-left: 0;
   }
 
-
+  #navbar a{
+    padding-top: 0;
+  }
 
   #searchForm input{
     width: 95%;
     float: none;
+    text-align: center;
+    padding-left: 0;
   }
 
   #loader{
