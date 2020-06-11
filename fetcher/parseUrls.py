@@ -414,6 +414,7 @@ def search(target):
                         
                         #if it's an extension to hte base, add to base
                         if "http" not in result[2] and "https" not in result[2]:
+                            
                             finalUrl = thread.url + result[2].split("\"")[1][1:]
                             
                         #if its the full url
