@@ -160,6 +160,9 @@ body{
 #loadingZone{
   display: none;
 }
+#loadingZone p{
+  color: rgb(236, 226, 226);
+}
 #searchForm button{
   margin-top:10px;
 }
