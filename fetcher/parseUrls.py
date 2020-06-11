@@ -412,10 +412,13 @@ def search(target):
                     ##if there is a direct link
                     if len(result) == 3:
                         
-                        #if it's an extension to hte base, add to base
+                        #if it's an extension to the base, add to base
                         if "http" not in result[2] and "https" not in result[2]:
                             
-                            finalUrl = thread.url + result[2].split("\"")[1][1:]
+                            if thread.url == "https://rarbg.to/":
+                                finalUrl = "https://rargb.to/"+ result[2].split("\"")[1][1:]
+                            else:
+                                finalUrl = thread.url + result[2].split("\"")[1][1:]
                             
                         #if its the full url
                         else:
