@@ -19,7 +19,7 @@ def index(request):
             dbSearches = Searches.objects.get(name="randomSearch")
             dbSearches.searches += 1
             dbSearches.save()
-
+            
             data = fetch_releases()
             data = data[:30:]
             randomTitle = data[randint(0,len(data))]
@@ -37,11 +37,9 @@ def index(request):
             form = SearchForm(request.POST)
 
             if form.is_valid():
-            
                 dbSearches = Searches.objects.get(name="standardSearch")
                 dbSearches.searches += 1
                 dbSearches.save()
-                
             
                 srch = search(form.cleaned_data['search'])
                 context['results'] = srch
