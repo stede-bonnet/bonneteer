@@ -138,7 +138,8 @@ body{
 }
 
 #releaseBlock{
-  min-height: 200px;
+  min-height: 250px;
+  max-height: 300px;
   border-radius: 20px;
   padding-bottom: 20px;
   float: left;
