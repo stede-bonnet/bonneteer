@@ -16,10 +16,13 @@ def index(request):
         if "rnd_search" in request.POST:
             
             # log random search count
+            '''
             dbSearches = Searches.objects.get(name="randomSearch")
             dbSearches.searches += 1
             dbSearches.save()
-            
+            '''
+            context['message'] = "Sorry, having some problems with getting latest titles for random search"
+            '''
             data = fetch_releases()
             data = data[:30:]
             randomTitle = data[randint(0,len(data))]
@@ -31,16 +34,17 @@ def index(request):
 
             if len(srch) == 0:
                 context['message'] = 'sorry no results for: {}'.format(randomTitle)
-        
+            '''
 
         else:
             form = SearchForm(request.POST)
 
             if form.is_valid():
+                '''
                 dbSearches = Searches.objects.get(name="standardSearch")
                 dbSearches.searches += 1
                 dbSearches.save()
-            
+                '''
                 srch = search(form.cleaned_data['search'])
                 context['results'] = srch
                 context['head'] = form.cleaned_data['search']

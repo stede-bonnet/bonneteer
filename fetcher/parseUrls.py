@@ -307,8 +307,10 @@ def fetch_data():
         return json.load(f)
 
 def get_releases():
+
     req1 = requests.get("https://api.crackwatch.com/api/games",params={"is_aaa":"true","is_cracked":"true"}).text
     req2 = requests.get("https://api.crackwatch.com/api/games",params={"is_aaa":"false","is_cracked":"true"}).text
+    
     d = json.loads(req1)
     d2 = json.loads(req2)
 
@@ -346,7 +348,7 @@ def search(target):
     #if a week has passes since last update
     if day % 7 == 0:
         getMegaThread()
-        get_releases()
+        #get_releases()
 
 
     #extract data from thread
