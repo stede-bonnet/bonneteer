@@ -38,14 +38,23 @@ def index(request):
 
         else:
             form = SearchForm(request.POST)
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 394ab2eac181c3d39a8676aeccb7c5515a8d6801
             if form.is_valid():
                 dbSearches = Searches.objects.get(name="standardSearch")
                 dbSearches.searches += 1
                 dbSearches.save()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 394ab2eac181c3d39a8676aeccb7c5515a8d6801
                 srch = search(form.cleaned_data['search'])
                 context['results'] = srch
                 context['head'] = form.cleaned_data['search']
+                
                 if len(srch) == 0:
                     context['message'] = 'sorry no results for: {}'.format(form.cleaned_data['search'])
 
