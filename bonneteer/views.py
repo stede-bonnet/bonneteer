@@ -40,11 +40,9 @@ def index(request):
             form = SearchForm(request.POST)
 
             if form.is_valid():
-            
                 dbSearches = Searches.objects.get(name="standardSearch")
                 dbSearches.searches += 1
                 dbSearches.save()
-
                 srch = search(form.cleaned_data['search'])
                 context['results'] = srch
                 context['head'] = form.cleaned_data['search']
