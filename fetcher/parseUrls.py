@@ -342,8 +342,8 @@ def search(target):
     repackersAvailable = {}
     
     #get date to check if it is time to update the megathread
-    #day = datetime.datetime.now().day
-    day=7
+    day = datetime.datetime.now().day
+    #day=7
 
     #if a week has passes since last update
     if day % 7 == 0:

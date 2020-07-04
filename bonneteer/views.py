@@ -20,10 +20,12 @@ def index(request):
             dbSearches.searches += 1
             dbSearches.save()
             context['message'] = "Sorry, having some problems with getting latest titles for random search"
-            
-            data = fetch_releases()
-            data = data[:30:]
-            randomTitle = data[randint(0,len(data))]
+            try:
+                data = fetch_releases()
+                data = data[:30:]
+                randomTitle = data[randint(0,len(data))]
+            except IndexError:
+                data = []
             srch = search(randomTitle)
 
             context['results'] = srch
