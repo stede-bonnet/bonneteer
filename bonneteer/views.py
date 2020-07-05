@@ -8,11 +8,14 @@ from bonneteer.forms import SearchForm
 from bonneteer.models import Searches
 
 
-def index(request):
+def index(request,*args):
     context = {}
     if request.method == 'POST':
 
-
+        if len(args) == 1:
+            print(args)
+        
+        
         if "rnd_search" in request.POST:
             
             # log random search count
@@ -53,9 +56,10 @@ def index(request):
         context['message'] = ''
         context['head'] = "Bonnet search"
     
+
     form = SearchForm()
     context['form'] = form
-
+    context['showButtons'] = True
 
     return render(request,'bonneteer/index.html',context=context)
 
@@ -78,3 +82,19 @@ def about(request):
 
     context = {'Torrents':torrentSites,'DirectDownload':directDownloads,'Repackers':trustedRepacks}    
     return render(request,'bonneteer/about.html',context=context)
+
+def searchRelease(request,index):
+    context = {}
+    data = fetch_releases()
+    releaseName = data[int(index)]
+    
+    srch = search(releaseName)
+
+    context['results'] = srch
+    context['head'] = releaseName
+
+    if len(srch) == 0:
+        context['message'] = 'sorry no results for: {}'.format(releaseName)
+
+    context['showButtons'] = False
+    return render(request,'bonneteer/index.html',context=context)

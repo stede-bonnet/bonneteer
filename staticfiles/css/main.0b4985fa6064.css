@@ -122,7 +122,7 @@ body{
   border-radius: 20px;
   border: none;
   color:#333;
-  text-transform: uppercase;
+  text-transform: capitalize;
   display: inline;
 }
 
@@ -138,7 +138,8 @@ body{
 }
 
 #releaseBlock{
-  min-height: 200px;
+  min-height: 250px;
+  max-height: 300px;
   border-radius: 20px;
   padding-bottom: 20px;
   float: left;
@@ -164,6 +165,8 @@ body{
   display: none;
 }
 #loadingZone p{
+  text-align: center;
+  margin-left: 2%;
   color: rgb(236, 226, 226);
 }
 #searchForm button{
@@ -177,16 +180,19 @@ body{
 #loader {
   margin-top: 15%;
   border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid rgb(212, 212, 0); /* Blue */
-  border-right: 5px solid rgb(200,200, 0);
+  border-top: 5px solid rgb(255, 255, 0); /* Blue */
+  border-right: 5px solid rgb(223, 223, 0);
   border-bottom: 5px solid rgb(188,188, 0);
-  border-left: 5px solid rgb(176, 176, 0);
+  border-left: 5px solid rgb(173, 173, 0);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   text-align: center;
-  margin-left: 48%;
+  margin-left: auto;
+  margin-right: auto;
+  
   animation: spin 0.5s linear infinite;
+  
 }
 
 @keyframes spin {

@@ -15,12 +15,16 @@ Releases
     <p style='color: whitesmoke;text-align: center;font-size: medium;'>All releases fetched from <a style="text-decoration: none;color: yellow;" href="https://crackwatch.com/">Crackwatch</a> and updated weekly</p>
     <h1 class="bigHeader" style="text-align: center;">Triple AAA releases</h2>
     {% for title in tripleA %}
+    <a href="{% url 'bonneteer:searchRel' forloop.counter0 %}" >
         <h4 style="color: whitesmoke;text-align: center;">{{title}}</h4>
+    </a>
     {% endfor %}
 
     <h1 class="bigHeader" style="text-align: center;margin-top: 5%;">Indie releases</h2>
     {% for title in indie %}
+    <a href="{% url 'bonneteer:searchRel' forloop.counter0|add:30 %}" >
         <h4 style="color: whitesmoke;text-align: center;">{{title}}</h4>
+    </a>
     {% endfor %}
 </body>
 {% endblock %}

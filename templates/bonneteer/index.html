@@ -25,7 +25,9 @@ Search
                 {% for field in form %}
                     {{ field }}
                 {% endfor %}
+                {% if showButtons %}
                 <button type="submit" id="searchButton" name="std_search">Search</button>
+                {% endif %}
                 
             </form>
             <form onsubmit="
@@ -34,7 +36,9 @@ Search
             document.getElementById('searchButton').style.display = 'none';"
             method="POST">
                 {% csrf_token %}
+                {% if showButtons %}
                 <button type="submit" id="randomButton" name="rnd_search">Random Search</button>
+                {% endif %}
             </form>
         </section>
 
