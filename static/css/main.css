@@ -165,8 +165,8 @@ body{
   display: none;
 }
 #loadingZone p{
-  text-align: center;
-  margin-left: 2%;
+  margin-left: auto;
+  margin-right: auto;
   color: rgb(236, 226, 226);
 }
 #searchForm button{
